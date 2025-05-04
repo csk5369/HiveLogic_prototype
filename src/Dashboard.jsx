@@ -1,5 +1,16 @@
 import React, { useState } from 'react';
 
+import Clients from './components/Clients';
+import Estimates from './components/Estimates';
+import Jobs from './components/Jobs';
+import Materials from './components/Materials';
+import Schedule from './components/Schedule';
+import Portal from './components/Portal';
+import Reports from './components/Reports';
+import Payments from './components/Payments';
+import Smart from './components/Smart';
+import Gps from './components/Gps';
+
 const TABS = [
   { id: 'clients', label: 'Clients' },
   { id: 'estimates', label: 'Estimates' },
@@ -18,6 +29,7 @@ export default function Dashboard() {
 
   return (
     <div style={{ padding: '2rem' }}>
+      {/* Header */}
       <header style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
         <div style={{
           width: '40px',
@@ -29,6 +41,7 @@ export default function Dashboard() {
         <h1 style={{ fontSize: '1.75rem', fontWeight: 700 }}>HiveLogic</h1>
       </header>
 
+      {/* Tabs */}
       <nav style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1rem' }}>
         {TABS.map(t => (
           <button
@@ -41,17 +54,18 @@ export default function Dashboard() {
         ))}
       </nav>
 
+      {/* Content */}
       <main className="card">
-        {tab === 'clients' && <p>Clients UI loading…</p>}
-        {tab === 'estimates' && <p>Estimates UI loading…</p>}
-        {tab === 'jobs' && <p>Jobs UI loading…</p>}
-        {tab === 'materials' && <p>Materials UI loading…</p>}
-        {tab === 'schedule' && <p>Schedule UI loading…</p>}
-        {tab === 'portal' && <p>Client Portal UI loading…</p>}
-        {tab === 'reports' && <p>Reports UI loading…</p>}
-        {tab === 'payments' && <p>Payments UI loading…</p>}
-        {tab === 'smart' && <p>Smart Scheduler UI loading…</p>}
-        {tab === 'gps' && <p>GPS Tracking UI loading…</p>}
+        {tab === 'clients' && <Clients />}
+        {tab === 'estimates' && <Estimates />}
+        {tab === 'jobs' && <Jobs />}
+        {tab === 'materials' && <Materials />}
+        {tab === 'schedule' && <Schedule />}
+        {tab === 'portal' && <Portal />}
+        {tab === 'reports' && <Reports />}
+        {tab === 'payments' && <Payments />}
+        {tab === 'smart' && <Smart />}
+        {tab === 'gps' && <Gps />}
       </main>
     </div>
   );
